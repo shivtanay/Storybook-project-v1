@@ -1,0 +1,369 @@
+/* Background container styling for thematic images */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1.5s ease-in-out;
+  opacity: 0.3; /* Ensures background is subtle behind text */
+}
+
+/* Audio controls positioning and layout */
+.audio-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+/* Styling for audio toggle buttons */
+.audio-btn {
+  background: rgba(58, 74, 107, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.audio-btn:hover {
+  background: rgba(85, 116, 169, 0.9);
+  transform: scale(1.1);
+}
+
+.audio-btn.muted {
+  background: rgba(169, 68, 66, 0.7);
+}
+
+/* Sound wave animation for audio feedback */
+.sound-wave {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  height: 30px;
+  gap: 3px;
+}
+
+.sound-wave.playing .bar {
+  animation-play-state: running;
+}
+.sound-wave.paused .bar {
+  animation-play-state: paused;
+}
+
+.sound-wave .bar {
+  width: 4px;
+  background: rgba(123, 181, 255, 0.7);
+  border-radius: 3px;
+  animation: sound-wave 1.2s infinite ease-in-out alternate;
+  animation-play-state: paused;
+}
+
+.sound-wave .bar:nth-child(1) {
+  height: 15px;
+  animation-delay: 0s;
+}
+.sound-wave .bar:nth-child(2) {
+  height: 25px;
+  animation-delay: 0.1s;
+}
+.sound-wave .bar:nth-child(3) {
+  height: 10px;
+  animation-delay: 0.2s;
+}
+.sound-wave .bar:nth-child(4) {
+  height: 20px;
+  animation-delay: 0.3s;
+}
+.sound-wave .bar:nth-child(5) {
+  height: 15px;
+  animation-delay: 0.4s;
+}
+
+@keyframes sound-wave {
+  0% {
+    transform: scaleY(0.5);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Theme-specific background filters */
+.medieval-theme .background-container {
+  filter: sepia(0.5);
+}
+.sky-theme .background-container {
+  filter: hue-rotate(30deg) brightness(1.1);
+}
+.futuristic-theme .background-container {
+  filter: hue-rotate(180deg) saturate(1.2);
+}
+
+/* Base styling for the body */
+body {
+  background-color: #0f0f1a;
+  color: #e0e0e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Main container styling */
+.container {
+  max-width: 800px;
+  background-color: rgba(20, 20, 35, 0.8);
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(71, 138, 255, 0.2);
+}
+
+/* Header styling */
+h1,
+h2 {
+  color: #7bb5ff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Story text area styling */
+.story-text {
+  min-height: 200px;
+  max-height: 300px;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  white-space: pre-line;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(25, 25, 45, 0.7);
+  transition: all 0.3s ease;
+}
+
+/* Theme-specific text colors with high specificity to ensure correct application */
+#main-container.medieval-theme #story-text {
+  color: #e0cda7; /* Beige for medieval theme */
+}
+
+#main-container.sky-theme #story-text {
+  color: #e6f0ff; /* Sky blue for sky theme */
+}
+
+#main-container.futuristic-theme #story-text {
+  color: #c5e1f8; /* Cyan for futuristic theme */
+}
+
+/* Paragraph styling within story text */
+.story-text p {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(123, 181, 255, 0.3);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.story-text p:last-child {
+  border-bottom: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar styling for story text */
+.story-text::-webkit-scrollbar {
+  width: 8px;
+}
+.story-text::-webkit-scrollbar-track {
+  background: rgba(20, 20, 35, 0.5);
+  border-radius: 10px;
+}
+.story-text::-webkit-scrollbar-thumb {
+  background: rgba(123, 181, 255, 0.5);
+  border-radius: 10px;
+}
+.story-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(123, 181, 255, 0.8);
+}
+
+/* Choice button styling */
+.choice-btn {
+  background: #3a4a6b;
+  border: none;
+  margin: 5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.choice-btn:hover {
+  background: #5574a9;
+  transform: scale(1.05);
+}
+
+/* Input field styling */
+.input-field {
+  background-color: rgba(40, 40, 60, 0.7);
+  border: 1px solid #4e5a8a;
+  color: #ffffff;
+}
+
+.input-field:focus {
+  background-color: rgba(50, 50, 75, 0.8);
+  border-color: #7bb5ff;
+  color: #ffffff;
+  box-shadow: 0 0 0 0.25rem rgba(123, 181, 255, 0.25);
+}
+
+.input-container {
+  margin-top: 20px;
+}
+.hidden {
+  display: none;
+}
+
+.btn-glow {
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px -5px #7bb5ff;
+  }
+  to {
+    box-shadow: 0 0 15px 5px #7bb5ff;
+  }
+}
+
+.typing-effect {
+  border-right: 2px solid #7bb5ff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  margin: 0 auto;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #7bb5ff;
+  }
+}
+
+#ascii-art {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.2;
+  color: #7bb5ff;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  #ascii-art {
+    font-size: 0.9rem;
+  }
+}
+
+.progress {
+  height: 6px;
+  margin-bottom: 15px;
+  background-color: #2a2a40;
+}
+
+.progress-bar {
+  background-color: #7bb5ff;
+}
+
+/* Theme-specific styles */
+.medieval-theme {
+  background: linear-gradient(to bottom, #2c1e0d, #1a1105);
+  color: #e0cda7;
+}
+
+.medieval-theme h1,
+.medieval-theme h2 {
+  color: #ffd166;
+}
+.medieval-theme .choice-btn {
+  background: #754c24;
+}
+.medieval-theme .choice-btn:hover {
+  background: #a67c52;
+}
+
+.sky-theme {
+  background: linear-gradient(to bottom, #4a86e8, #1c3862);
+  color: #e6f0ff;
+}
+
+.sky-theme h1,
+.sky-theme h2 {
+  color: #a2d2ff;
+}
+.sky-theme .choice-btn {
+  background: #5574a9;
+}
+.sky-theme .choice-btn:hover {
+  background: #7598d1;
+}
+
+.futuristic-theme {
+  background: linear-gradient(to bottom, #0f1923, #1d2b38);
+  color: #c5e1f8;
+}
+
+.futuristic-theme h1,
+.futuristic-theme h2 {
+  color: #00ffff;
+}
+.futuristic-theme .choice-btn {
+  background: #0073b7;
+}
+.futuristic-theme .choice-btn:hover {
+  background: #00a0f7;
+}
+
+.restart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.help-menu {
+  text-align: center;
+}
