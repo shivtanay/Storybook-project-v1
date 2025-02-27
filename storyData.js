@@ -21,9 +21,9 @@ const soundMap = {
 
 /* Maps background music to their URLs for thematic ambiance */
 const musicMap = {
-  medieval: "ttps://assets.mixkit.co/active_storage/sfx/148/148-preview.mp3", // Medieval theme music
-  sky: "https://assets.mixkit.co/active_storage/sfx/148/148-preview.mp3", // Sky islands theme music
-  futuristic: "ttps://assets.mixkit.co/active_storage/sfx/148/148-preview.mp3", // Futuristic city theme music
+  medieval: "medieval.mp3", // Medieval theme music
+  sky: "blue-sky-231778.mp3", // Sky islands theme music
+  futuristic: "future.mp3", // Futuristic city theme music
 };
 
 /* Maps background images to settings and locations for visual immersion */
